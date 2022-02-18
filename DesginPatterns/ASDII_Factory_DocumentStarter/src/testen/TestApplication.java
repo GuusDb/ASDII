@@ -2,6 +2,9 @@ package testen;
 
 import domein.Application;
 import domein.ApplicationFactory;
+import domein.DrawingDocument;
+import domein.StatisticsDocument;
+
 //uncomment
 //import domein.DrawingDocument;
 //import domein.StatisticsDocument;
@@ -16,8 +19,8 @@ public class TestApplication {
         application.addNewDocument("drawing1");
         application.addNewDocument("drawing2");
 //uncomment
-//        Assertions.assertTrue(application.getDocument("drawing1") instanceof DrawingDocument);
-//        Assertions.assertTrue(application.getDocument("drawing2") instanceof DrawingDocument);
+        Assertions.assertTrue(application.getDocument("drawing1") instanceof DrawingDocument);
+        Assertions.assertTrue(application.getDocument("drawing2") instanceof DrawingDocument);
     }
 
     @Test
@@ -26,7 +29,7 @@ public class TestApplication {
         application.addNewDocument("stat1");
         application.addNewDocument("stat2");
 //uncomment
-//        Assertions.assertTrue(application.getDocument("stat1") instanceof StatisticsDocument);
-//        Assertions.assertTrue(application.getDocument("stat2") instanceof StatisticsDocument);
+        Assertions.assertTrue(application.getDocument("stat1") instanceof StatisticsDocument);
+        Assertions.assertTrue(application.getDocument("stat2") instanceof StatisticsDocument);
     }
 }
