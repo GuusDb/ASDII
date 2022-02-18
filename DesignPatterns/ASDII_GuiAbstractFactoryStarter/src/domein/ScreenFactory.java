@@ -5,8 +5,8 @@ public class ScreenFactory {
 	public static Screen createScreen(String type) {
 
 		return switch (type.toLowerCase()) {
-		//case "win" -> //TODO
-		//case "mac" -> //TODO
+		case "win" -> new Screen(new WinFactory());
+		case "mac" -> new Screen(new MacFactory());
 		default -> null;
 		};
 	}
