@@ -1,5 +1,6 @@
 package domein;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class DinerMenu {
@@ -35,7 +36,7 @@ public class DinerMenu {
 
 	public Iterator<MenuItem> createIterator() {
 		// TODO
-		return null;
+		return Arrays.asList(menuItems).iterator();
 	}
 
 	public String getTitle() {
