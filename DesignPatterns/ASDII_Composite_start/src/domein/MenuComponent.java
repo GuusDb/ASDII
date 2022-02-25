@@ -1,6 +1,7 @@
 package domein;
 
 import java.util.Iterator;
+import java.util.*;
 
 public abstract class MenuComponent {
 	
@@ -54,6 +55,9 @@ public abstract class MenuComponent {
 
 
 		public abstract Iterator<domein.MenuComponent> createIterator();
+
+
+		public abstract boolean isLeaf();
 
 
 }

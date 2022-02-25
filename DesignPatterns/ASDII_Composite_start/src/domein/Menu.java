@@ -46,6 +46,10 @@ public class Menu extends MenuComponent {
 		return menuComponents.iterator();
 	}
 
+	public boolean isLeaf() {
+		return false;
+	}
+
 	
 
 }

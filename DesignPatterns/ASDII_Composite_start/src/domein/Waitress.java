@@ -21,12 +21,12 @@ public class Waitress {
         System.out.println("\nVEGETARIAN MENU\n----");
         while (iterator.hasNext()) {
             MenuComponent menuComponent = iterator.next();
-            try {
-                if (menuComponent.isVegetarian()) {
-                    menuComponent.print();
-                }
-             } catch (UnsupportedOperationException e) {
-           }
+//            try {
+                if (menuComponent.isLeaf()&&menuComponent.isVegetarian()) {
+                   menuComponent.print();
+               }
+//             } catch (UnsupportedOperationException e) {
+//           }
         }
     }
 }

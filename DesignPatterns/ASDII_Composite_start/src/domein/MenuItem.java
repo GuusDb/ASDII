@@ -1,6 +1,7 @@
 package domein;
 
 import java.util.Iterator;
+import java.util.*;
 
 public class MenuItem extends MenuComponent {
 
@@ -37,6 +38,12 @@ public class MenuItem extends MenuComponent {
 
 	public Iterator<domein.MenuComponent> createIterator() {
 		return new NullIterator();
+	}
+
+
+
+	public boolean isLeaf() {
+		return true;
 	}
 
 }
