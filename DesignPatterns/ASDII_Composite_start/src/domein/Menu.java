@@ -3,51 +3,45 @@ package domein;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.*;
 
-public class Menu {
+public class Menu extends MenuComponent {
 
-    private List<Object> menuComponents = new ArrayList<>();
-    private String name;
-    private String description;
-
+	private List<MenuComponent> menuComponents = new ArrayList<>();
+	
+	
     public Menu(String name, String description) {
-        this.name = name;
-        this.description = description;
+    	super(name,description);
     }
 
-    public void add(Object menuComponent) {
+    public void add(MenuComponent menuComponent) {
         menuComponents.add(menuComponent);
     }
 
-    public void remove(Object menuComponent) {
+    public void remove(MenuComponent menuComponent) {
         menuComponents.remove(menuComponent);
     }
 
-    public Object getChild(int i) {
+    public MenuComponent getChild(int i) {
         return menuComponents.get(i);
     }
 
-    public String getName() {
-        return name;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-    
     public void print() {
         System.out.print("\n" + getName());
         System.out.println(", " + getDescription());
         System.out.println("---------------------");
-
-        menuComponents.forEach( menuComponents ->
-        {
-        		if (menuComponents instanceof MenuItem item)
-        			item.print();
-        		else
-        			((Menu)menuComponents).print();
-        }
-        );
+        
+        menuComponents.forEach(MenuComponent::print);
+//        menuComponents.forEach( menuComponents ->
+//        {
+//        		if (menuComponents instanceof MenuItem item)
+//        			item.print();
+//        		else
+//        			((Menu)menuComponents).print();
+//        }
+//        );
     }
+
+	
 
 }
