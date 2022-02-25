@@ -35,7 +35,7 @@ public class PancakeHouseMenu implements Menu {
 	}
 
 	public java.lang.String getTitle() {
-		return "Lunch";
+		return "Breakfast";
 	}
 
 	// other menu methods here
