@@ -2,6 +2,7 @@ package iterator_java_util;
 
 import java.util.Arrays;
 
+import domein.CafeMenu;
 import domein.DinerMenu;
 import domein.PancakeHouseMenu;
 import domein.Waitress;
@@ -12,7 +13,7 @@ public class IteratorStartUp {
 		PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
 		DinerMenu dinerMenu = new DinerMenu();
 
-		Waitress waitress = new Waitress(Arrays.asList(pancakeHouseMenu, dinerMenu));
+		Waitress waitress = new Waitress(Arrays.asList(pancakeHouseMenu, dinerMenu, new CafeMenu()));
 
 		waitress.printMenu();
 
