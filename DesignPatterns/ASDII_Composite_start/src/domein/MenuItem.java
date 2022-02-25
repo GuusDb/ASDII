@@ -33,4 +33,10 @@ public class MenuItem extends MenuComponent {
         System.out.println("     -- " + getDescription());
     }
 
+
+
+	public Iterator<domein.MenuComponent> createIterator() {
+		return new NullIterator();
+	}
+
 }

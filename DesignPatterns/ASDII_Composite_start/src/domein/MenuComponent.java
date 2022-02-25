@@ -53,4 +53,7 @@ public abstract class MenuComponent {
 		}
 
 
+		public abstract Iterator<domein.MenuComponent> createIterator();
+
+
 }

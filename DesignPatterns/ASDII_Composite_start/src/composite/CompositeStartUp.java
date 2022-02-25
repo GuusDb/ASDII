@@ -95,7 +95,7 @@ public class CompositeStartUp {
 
         waitress.printMenu();
 
-        //waitress.printVegetarianMenu();
+        waitress.printVegetarianMenu();
     }
 
 }

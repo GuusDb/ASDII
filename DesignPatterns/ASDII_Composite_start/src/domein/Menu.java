@@ -42,6 +42,10 @@ public class Menu extends MenuComponent {
 //        );
     }
 
+	public Iterator<domein.MenuComponent> createIterator() {
+		return menuComponents.iterator();
+	}
+
 	
 
 }
