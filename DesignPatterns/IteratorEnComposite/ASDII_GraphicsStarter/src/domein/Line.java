@@ -1,7 +1,7 @@
 
 package domein;
 
-public class Line {
+public class Line extends Graphic {
 
    private int x1, y1, x2, y2;
 

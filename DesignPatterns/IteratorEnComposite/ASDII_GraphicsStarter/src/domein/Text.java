@@ -1,6 +1,6 @@
 package domein;
 
-public class Text {
+public class Text extends Graphic {
 
     private String text;
     private int x, y;

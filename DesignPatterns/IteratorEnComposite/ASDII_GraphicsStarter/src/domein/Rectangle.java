@@ -1,6 +1,6 @@
 package domein;
 
-public class Rectangle  {
+public class Rectangle extends Graphic  {
 
     private int x, y, width, height;
 
