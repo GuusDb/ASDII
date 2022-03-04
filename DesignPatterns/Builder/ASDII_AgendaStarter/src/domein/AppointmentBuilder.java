@@ -47,7 +47,7 @@ public class AppointmentBuilder {
 	}
 
 	public void buildDates(LocalDateTime startDate, LocalDateTime endDate) {
-		if(startDate!=null & startDate.isAfter(LocalDateTime.now())) {
+		if(startDate!=null && startDate.isAfter(LocalDateTime.now())) {
 			appointment.setStartDate(startDate);
 			if(endDate!=null && endDate.isAfter(startDate)) {
 				appointment.setEndDate(endDate);

@@ -1,7 +1,7 @@
 package agendaStarter;
 
-import domein.Appointment;
-import domein.Contact;
+import exception.InformationRequiredException;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class TestDrive {
     private Appointment appt;
     //TODO attribut(en) voor aanmaak van een appointment
     //
-   
+   private Scheduler schedule = new Scheduler();
     
     //
     //End TODO attribut(en)
@@ -41,7 +41,7 @@ public class TestDrive {
         return contactData[index % contactData.length];
     }
     
-    private void run() {
+    private void run(){
 
         System.out.println("Creating an Appointment ");
         //TODO maak gewone afspraak zonder fout:
@@ -51,15 +51,22 @@ public class TestDrive {
         //Beschrijving = "Project Demo"
         //uitgenodigden = createAttendees(4)
         
+        try {
+        	appt = schedule.createAppointment(new AppointmentBuilder(), LocalDateTime.of(2022, 7, 22, 12, 30)
+        			, null, "Project Demo", createAttendees(4), new Location("Hogeschool Gent, D2.014"));
             
+            //Afdruk resultaat
+                System.out.println("Successfully created an Appointment.");
+                System.out.println("Appointment information:");
+                System.out.println(appt);
+                System.out.println();
+        }catch(InformationRequiredException ie) {
+            //vervolg...(als fouten)
+        	printExceptions(ie);
+        }
                    
-            
-        //Afdruk resultaat
-            System.out.println("Successfully created an Appointment.");
-            System.out.println("Appointment information:");
-            System.out.println(appt);
-            System.out.println();
-        //vervolg...(als fouten)
+   
+ 
        
    
 
@@ -71,7 +78,13 @@ public class TestDrive {
         //Beschrijving = "OOO III"
         //uitgenodigden = createAttendees(4)
         
-        
+        try {
+        	 appt = schedule.createAppointment(new MeetingBuilder(), LocalDateTime.of(2022, 3, 21, 12, 30), null, "OOO III", createAttendees(4), null);
+        }catch(InformationRequiredException ie) {
+            //vervolg...(als fouten)
+        	printExceptions(ie);
+        }
+       
            
                     
             
@@ -108,14 +121,18 @@ public class TestDrive {
        
     
         
-        //
+        //allemaal nog gewoon schedulers aanmaken sorry ik moest de trein halen
     }
 
     //TODO een printmethode voor bij fouten : wat er voor de constructie ontbreekt
     //
     //public void print...
         
-
+    private void printExceptions(InformationRequiredException ire) {
+    	 System.out.println(ire.getMessage());
+    	 ire.getInformationRequired().forEach(System.out::println);
+    	 System.out.println();
+    }
         
         
             
