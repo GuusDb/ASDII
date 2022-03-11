@@ -145,7 +145,7 @@ public class Appointment {
 			}
 			
 			if(endDate == null) {
-				requiredElements.add(RequiredElement.LocationRequired);
+				requiredElements.add(RequiredElement.EndDateRequired);
 			}
 
 			if (location==null) {
@@ -158,6 +158,24 @@ public class Appointment {
 				throw new InformationRequiredException(requiredElements);
 			}
 			return new Appointment(this);
+		}
+	}
+	public static class MeetingBuilder extends Builder{
+		private Appointment appointment;
+		
+		@Override
+		public Appointment build() throws InformationRequiredException {
+			try {
+				appointment = super.build();
+			} finally {
+				if (super.endDate==null) {
+					requiredElements.add(RequiredElement.EndDateRequired);
+				}
+				if (!requiredElements.isEmpty()) {
+					throw new InformationRequiredException(requiredElements);
+				}
+			}
+			return appointment;
 		}
 	}
 }

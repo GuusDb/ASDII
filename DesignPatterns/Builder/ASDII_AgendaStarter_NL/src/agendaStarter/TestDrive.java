@@ -1,16 +1,13 @@
 package agendaStarter;
 
-import domein.Appointment;
-import domein.AppointmentBuilder;
-import domein.Contact;
-import domein.Location;
-import domein.MeetingBuilder;
-import domein.Scheduler;
-import exception.InformationRequiredException;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import domein.Appointment;
+import domein.Contact;
+import domein.Location;
+import exception.InformationRequiredException;
 
 public class TestDrive {
 
@@ -26,7 +23,7 @@ public class TestDrive {
     //TODO attribut(en) voor aanmaak van een appointment
     //
     
-    private Scheduler scheduler = new Scheduler();
+    //private Scheduler scheduler = new Scheduler();
    
     
     //
@@ -58,8 +55,14 @@ public class TestDrive {
         //uitgenodigden = createAttendees(4)
         
          try {
-             appt = scheduler.createAppointment(new AppointmentBuilder(), LocalDateTime.of(2022, 7, 22, 12, 30)
-            		 , null, "Project Demo", createAttendees(4), new Location("Hogeschool Gent, D2.014"));      
+//             appt = scheduler.createAppointment(new AppointmentBuilder(), LocalDateTime.of(2022, 7, 22, 12, 30)
+//            		 , null, "Project Demo", createAttendees(4), new Location("Hogeschool Gent, D2.014"));      
+        	 
+        	 appt = new Appointment.Builder().startDate(LocalDateTime.of(2022, 7, 22, 12, 30))
+        			 						 .description("projectDemo")
+        			 						 .attendees(createAttendees(4))
+        			 						 .location( new Location("Hogeschool Gent, D2.014"))
+        			 						 .build();
             
         //Afdruk resultaat
             System.out.println("Successfully created an Appointment.");
@@ -72,17 +75,20 @@ public class TestDrive {
         	 printExceptions(ex);
 		}
    
-
+//
         System.out.println("Creating a meeting : enddate is missing");
-        //TODO maak een meeting met fout:
+//        //TODO maak een meeting met fout:
         //
         //Start datum = LocalDateTime.of(2022, 3, 21, 12, 30)
         //Locatie = new Location("Hogeschool Gent, B3.020")
         //Beschrijving = "OOO III"
         //uitgenodigden = createAttendees(4)
         try {
-        appt = scheduler.createAppointment(new MeetingBuilder(), LocalDateTime.of(2022, 3, 21, 12, 30), null,
-        		"OOO III",createAttendees(4), new Location("Hogeschool Gent, B3.020"));
+        appt = new Appointment.MeetingBuilder().startDate(LocalDateTime.of(2022, 3, 21, 12, 30))
+        									   .location(new Location("Hogeschool Gent, B3.020"))
+        									   .description("OOO II")
+        									   .attendees(createAttendees(4))
+        									   .build();
            
                     
        //Afdruk resultaat (zal falen)
@@ -98,59 +104,64 @@ public class TestDrive {
        
        
 
-        
-        System.out.println("Meeting : all items are provided");
-        //TODO maak een meeting met fout:
-        //
-        //Start datum =LocalDateTime.of(2022, 4, 1, 10, 00)
-        //Eind datum = LocalDateTime.of(2022, 4, 1, 11, 30),
-        //Locatie = new Location("Hogeschool Gent, B1.032")
-        //Beschrijving = "Project II Meeting"
-        //uitgenodigden = createAttendees(2)
+//        
+//        System.out.println("Meeting : all items are provided");
+//        //TODO maak een meeting met fout:
+//        //
+//        //Start datum =LocalDateTime.of(2022, 4, 1, 10, 00)
+//        //Eind datum = LocalDateTime.of(2022, 4, 1, 11, 30),
+//        //Locatie = new Location("Hogeschool Gent, B1.032")
+//        //Beschrijving = "Project II Meeting"
+//        //uitgenodigden = createAttendees(2)
 
-        
+      
            try {
         	   
-        	   appt = scheduler.createAppointment(new MeetingBuilder(), LocalDateTime.of(2022, 4, 1, 10, 00),
-        			   LocalDateTime.of(2022, 4, 1, 11, 30), "Project II Meeting",
-        			   createAttendees(2) ,new Location("Hogeschool Gent, B1.032"));
-                
-                    
-            
-        //Afdruk resultaat
-            System.out.println("Successfully created an Appointment.");
+//       	   appt = scheduler.createAppointment(new MeetingBuilder(), LocalDateTime.of(2022, 4, 1, 10, 00),
+//        			   LocalDateTime.of(2022, 4, 1, 11, 30), "Project II Meeting",
+//      			   createAttendees(2) ,new Location("Hogeschool Gent, B1.032"));
+        	   appt = new Appointment.MeetingBuilder().startDate(LocalDateTime.of(2022, 4, 1, 10, 00))
+        			   								  .endDate(LocalDateTime.of(2022, 4, 1, 11, 30))
+        			   								  .description("Project II Meeting")
+        			   								  .attendees(createAttendees(2))
+        			   								  .location(new Location("Hogeschool Gent, B1.032"))
+        			   								  .build();
+               
+                                
+//        //Afdruk resultaat
+         System.out.println("Successfully created an Appointment.");
             System.out.println("Appointment information:");
-            System.out.println(appt);
-            System.out.println();
-        //vervolg...(als fouten)
+           System.out.println(appt);
+           System.out.println();
+       //vervolg...(als fouten)
            } 
-           catch (InformationRequiredException ex) {
-   			// TODO: handle exception
-          	 printExceptions(ex);
+         catch (InformationRequiredException ex) {
+ 			// TODO: handle exception
+        	 printExceptions(ex);
   		  }
     
+       
         
-        //
     }
 
-    //TODO een printmethode voor bij fouten : wat er voor de constructie ontbreekt
-    //
-    //public void print...
-        
+//    //TODO een printmethode voor bij fouten : wat er voor de constructie ontbreekt
+//    //
+//    //public void print...
+//        
     private void printExceptions(InformationRequiredException ex) {
     	System.out.println(ex.getMessage());
     	ex.getInformationRequired().forEach(System.out::println);
     	System.out.println();
     }
+//        
+//        
+//            
+//            
         
-        
-            
-            
-        
-    
-    //
-    //END TODO printmethode wat ontbreekt
-
+//    
+//    //
+//    //END TODO printmethode wat ontbreekt
+//
 
 
 
