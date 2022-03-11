@@ -13,6 +13,11 @@ public class MacroCommand implements Command {
     }
     /* NOTE:  these commands have to be done backwards to 
      ensure proper undo functionality */
+	@Override
+	public void undo() {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

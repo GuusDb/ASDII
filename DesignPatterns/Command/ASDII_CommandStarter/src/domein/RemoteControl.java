@@ -8,7 +8,9 @@ public class RemoteControl {
 
     private final int numberCommands = 7;
 
-    public RemoteControl() {
+    private Command undoCommand;
+
+	public RemoteControl() {
         //we instantieren en initialiseren de on-en off-arrays 
         onCommands = new Command[numberCommands];
         offCommands = new Command[numberCommands];
@@ -18,6 +20,7 @@ public class RemoteControl {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
+        undoCommand = noCommand;
 
 
     }
@@ -32,14 +35,17 @@ public class RemoteControl {
 
     public void onButtonWasPushed(int slot) {
         onCommands[slot].execute();
+        undoCommand=onCommands[slot];
     }
 
     public void offButtonWasPushed(int slot) {
         offCommands[slot].execute();
+        undoCommand=offCommands[slot];
     }
 
     public void undoButtonWasPushed() {
-
+    	undoCommand.undo();
+    	undoCommand = new NoCommand();
     }
 
     public String toString() {
