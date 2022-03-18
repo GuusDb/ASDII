@@ -9,14 +9,16 @@ public class DomeinController
 	public DomeinController()
 	{
 		document = new Document();
+		commandFactory = new CommandFactory(document);
 	}
 	
 	public String readDocument()
 	{
 		return document.readDocument();
 	}
-
+	
+	//execute niet met hoofdletter
 	public void execute(String tekst, String actie) {
-		//TODO
+		commandFactory.createCommand(actie, tekst).Execute();
 	}
 }
