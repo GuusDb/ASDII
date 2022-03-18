@@ -4,6 +4,8 @@ public class DomeinController
 {
 	private Document document;
 	
+	private CommandFactory commandFactory;
+
 	public DomeinController()
 	{
 		document = new Document();

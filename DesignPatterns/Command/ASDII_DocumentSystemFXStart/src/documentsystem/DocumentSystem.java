@@ -6,6 +6,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.application.*;
+import javafx.stage.*;
  
 public class DocumentSystem extends Application {
 
