@@ -1,0 +1,12 @@
+0	1	<menu>		Bestand
+1	10	opslaan		Opslaan
+1	11	opslaanAls	Opslaan als
+1	12	afsluiten	Afsluiten
+0	2	<menu>		Bewerken
+2	20	undo		Ongedaan maken
+2   21  <menu>      Plakken
+21  210 paste       Plakken normaal
+21  211 <menu> 		Plakken speciaal
+211 2110 pasteHyperlink	Plakken als Hyperlink
+0	3	<menu>		Help
+3	30	info		Info
