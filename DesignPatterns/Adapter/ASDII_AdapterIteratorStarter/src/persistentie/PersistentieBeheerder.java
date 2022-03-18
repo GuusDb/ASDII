@@ -10,6 +10,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import domein.ApplicatieFout;
 import domein.EnumerationIterator;
+import domein.IteratorEnumeration;
 import domein.MenuActie;
 import javax.swing.tree.TreeNode;
 
@@ -66,13 +67,13 @@ public class PersistentieBeheerder {
                 = root.depthFirstEnumeration();
 
         //TODO Instantieer adaptor
-        
+        Iterator<TreeNode> iterator =  new EnumerationIterator<>(enumeration); 
         int ouder = ((MenuActie) kind.getUserObject()).getOuder();
         //while (enumeration.hasMoreElements() && !gevonden) 
-        while ( && !gevonden) {   //TODO gebruik adaptor  
+        while ( iterator.hasNext() && !gevonden) {   //TODO gebruik adaptor  
 
             //DefaultMutableTreeNode node = enumeration.nextElement();
-            DefaultMutableTreeNode node = ; //TODO gebruik adaptor
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) iterator.next(); //TODO gebruik adaptor
 
             MenuActie menuActie = (MenuActie) node.getUserObject();
 
