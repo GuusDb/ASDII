@@ -13,4 +13,10 @@ public class ConcatCommand implements Command {
 		document = doc;
 		this.tekst = tekst;
 	}
+
+	@Override
+	public void undo() {
+		// TODO Auto-generated method stub
+		
+	}
 }

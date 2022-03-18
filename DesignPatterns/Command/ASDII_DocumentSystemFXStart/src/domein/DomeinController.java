@@ -1,15 +1,20 @@
 package domein;
 
+import java.util.*;
+
 public class DomeinController 
 {
 	private Document document;
 	
 	private CommandFactory commandFactory;
 
+	private Deque<Command> undoStack;
+
 	public DomeinController()
 	{
 		document = new Document();
 		commandFactory = new CommandFactory(document);
+		undoStack = new ArrayDeque<>();
 	}
 	
 	public String readDocument()
@@ -19,6 +24,11 @@ public class DomeinController
 	
 	//execute niet met hoofdletter
 	public void execute(String tekst, String actie) {
-		commandFactory.createCommand(actie, tekst).execute();
+		if (actie.equals("undo") && !undoStack.isEmpty()) {
+			undoStack.pop().undo();
+		}
+		Command command =  commandFactory.createCommand(actie, tekst)/*.execute()*/;
+		undoStack.push(command);
+		command.execute();
 	}
 }
