@@ -2,7 +2,7 @@ package domein;
 
 public class NoCommand implements Command {
 
-	public void Execute() {
+	public void execute() {
 		throw new UnsupportedOperationException();
 	}
 

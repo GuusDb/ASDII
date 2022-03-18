@@ -19,6 +19,6 @@ public class DomeinController
 	
 	//execute niet met hoofdletter
 	public void execute(String tekst, String actie) {
-		commandFactory.createCommand(actie, tekst).Execute();
+		commandFactory.createCommand(actie, tekst).execute();
 	}
 }

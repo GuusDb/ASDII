@@ -5,7 +5,7 @@ public class DeleteCommand implements Command {
 	private Document document;
 	private String tekst;
 
-	public void Execute() {
+	public void execute() {
 		document.erase(tekst);
 	}
 
