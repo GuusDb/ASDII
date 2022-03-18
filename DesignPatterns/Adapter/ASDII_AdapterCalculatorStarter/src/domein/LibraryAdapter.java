@@ -1,5 +1,7 @@
 package domein;
 
+import calcLibrary.CalculatorLibrary;
+
 public class LibraryAdapter {
 
 	public LibraryAdapter(CalculatorLibrary lib) {

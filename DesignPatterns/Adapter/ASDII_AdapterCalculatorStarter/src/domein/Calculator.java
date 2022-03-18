@@ -1,6 +1,7 @@
 package domein;
 
 import calcLibrary.*;
+import calcLibrary.CalculatorLibrary;
 
 public class Calculator implements TargetLong {
 
