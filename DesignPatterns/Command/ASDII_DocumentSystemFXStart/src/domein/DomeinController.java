@@ -26,9 +26,11 @@ public class DomeinController
 	public void execute(String tekst, String actie) {
 		if (actie.equals("undo") && !undoStack.isEmpty()) {
 			undoStack.pop().undo();
+		}else {
+			Command command =  commandFactory.createCommand(actie, tekst)/*.execute()*/;
+			undoStack.push(command);
+			command.execute();
 		}
-		Command command =  commandFactory.createCommand(actie, tekst)/*.execute()*/;
-		undoStack.push(command);
-		command.execute();
+		
 	}
 }

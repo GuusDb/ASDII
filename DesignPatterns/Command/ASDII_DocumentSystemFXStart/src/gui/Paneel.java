@@ -16,7 +16,7 @@ import javafx.scene.control.*;
 
 public class Paneel extends VBox {
 
-    private String[] menuItemNaam = {"Concat", "Delete"};
+    private String[] menuItemNaam = {"Concat", "Delete","undo"};
     private DomeinController domeinController;
 
     private MenuBar menuBar = new MenuBar();

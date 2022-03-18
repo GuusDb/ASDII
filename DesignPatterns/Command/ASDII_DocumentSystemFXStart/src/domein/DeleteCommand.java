@@ -18,6 +18,7 @@ public class DeleteCommand implements Command {
 
 	@Override
 	public void undo() {
-		document.insert(tekst, eersteVoorkomen);
+		if(eersteVoorkomen>= 0)
+			document.insert(tekst, eersteVoorkomen);
 	}
 }

@@ -16,7 +16,7 @@ public class ConcatCommand implements Command {
 
 	@Override
 	public void undo() {
-		// TODO Auto-generated method stub
+		document.removeAtEnd(tekst);
 		
 	}
 }
