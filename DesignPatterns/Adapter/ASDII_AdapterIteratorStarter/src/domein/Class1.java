@@ -21,12 +21,12 @@ public class Class1 {
         Iterator<String> it = itemLijst.iterator();
 
         //TODO Instantieer adaptor
-        
+        Enumeration<String> enumi = new IteratorEnumeration<>(it);
         //while (it.hasNext())
-        while (    ) //TODO gebruik adaptor
+        while ( enumi.hasMoreElements()   ) //TODO gebruik adaptor
         {
             //builder.append(it.next()).append(" ");
-            builder.append().append(" ");   //TODO gebruik adaptor
+            builder.append(enumi.nextElement()).append(" ");   //TODO gebruik adaptor
         }
 
         return builder.toString();
