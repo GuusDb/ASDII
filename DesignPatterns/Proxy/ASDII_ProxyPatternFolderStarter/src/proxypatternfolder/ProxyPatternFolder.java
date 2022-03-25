@@ -1,6 +1,7 @@
 package proxypatternfolder;
 
 import domein.DomeinController;
+import domein.*;
 
 public class ProxyPatternFolder {
 
