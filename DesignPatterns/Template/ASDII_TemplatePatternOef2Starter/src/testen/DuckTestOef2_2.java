@@ -9,6 +9,9 @@ import domeinOef2_2.Duck;
 public class DuckTestOef2_2 {
 	@Test
 	public void sortBySizeTest() {
+		
+		//dit is de template methode
+		
 		Duck d1 = new Duck("Ducky", 50, 33);
 		Duck d2 = new Duck("Greenie", 44, 24);
 		Duck d3 = new Duck("Tutsie", 1, 105);

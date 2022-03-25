@@ -10,6 +10,9 @@ import domeinOef2_1.Duck;
 public class DuckTestOef2_1 {
     @Test
     public void sortBySizeTest() {
+    	//dit is een strategy pattern
+    	
+    	
         Duck d1 = new Duck("Ducky", 50, 33);
         Duck d2 = new Duck("Greenie", 44, 24);
         Duck d3 = new Duck("Tutsie", 1, 105);
