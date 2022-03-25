@@ -15,8 +15,8 @@ public class DomeinController {
         User user = userManager.getUser(name, passwd);
         if (user!=null){
 //TODO _ maak gebruik van het proxypattern
-            
-            
+            AbstractFolder pfolder = new ProxyFolder(folder, user, userManager);
+            return pfolder.performOperations();
 //END TODO
         }
         
