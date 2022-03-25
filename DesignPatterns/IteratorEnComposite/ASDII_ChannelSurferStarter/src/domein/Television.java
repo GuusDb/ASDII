@@ -3,20 +3,22 @@ package domein;
 public class Television {
 
     //TODO attributes
-
+	private Iterator surfer;
 
     public Television(int maxChannel) {
-        //TODO
+        surfer = new ChannelSurfer(maxChannel);
     }
 
     public Program getNextProgram() {
         //TODO
-        return null;
+        return surfer.nextChannel().getCurrentProgram();
     }
 
     public Program getPrevProgram() {
         //TODO
-        return null;
+        return surfer.prevChannel().getCurrentProgram();
     }
+
+
 
 }
