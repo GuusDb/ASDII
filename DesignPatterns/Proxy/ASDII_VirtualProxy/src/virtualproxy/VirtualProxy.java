@@ -63,7 +63,7 @@ public class VirtualProxy {
         frame.setVisible(true);
 
     }
-
+  
     URL getCDUrl(String name) {
         try {
             return new URL((String) cds.get(name));
