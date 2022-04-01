@@ -1,10 +1,8 @@
 package main;
 
-import domein.Report;
-import domein.Resume;
 import java.util.ArrayList;
 import java.util.List;
-import domein.Document;
+
 import domein.*;
 import java.util.*;
 
@@ -19,12 +17,12 @@ public class StartUp {
     private void run() {
         documents = new ArrayList<>();
 //Uncomment
-//        documents.add(new Report());
-//        documents.add(new Resume());
-//        documents.forEach(doc -> System.out.printf("\n%s:\n%s\n",
-//                doc.getClass().getSimpleName(),
-//                doc.print())
-//        );
+        documents.add(new ReportDocument());
+        documents.add(new ResumeDocument());
+        documents.forEach(doc -> System.out.printf("\n%s:\n%s\n",
+                doc.getClass().getSimpleName(),
+                doc.print())
+        );
     }
 
 }
