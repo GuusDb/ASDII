@@ -12,6 +12,8 @@ public class StockSystem {
 
 	//private StockServiceController controller = new StockServiceController();
 	private RemoteStockService stockService;
+	private String username;
+	
     private Scanner choose = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -33,11 +35,15 @@ public class StockSystem {
     private void run() {
     	stockService = getRemoteService();
     	System.out.println("RemoteClient is running...");
+    	
+    	System.out.println("Username: ");
+    	username = choose.nextLine();
+    	
         String action = askAction();
         String mes;
         while (!action.equalsIgnoreCase("end")) {
             try {
-				mes = stockService.performActions(action.split(" "));
+				mes = stockService.performActions((username+ ' ' + action).split(" "));
 				System.out.print(mes);
 		        action = askAction();
 			} catch (RemoteException e) {
@@ -51,6 +57,7 @@ public class StockSystem {
 
 	private String askAction() {
         System.out.println("");
+        System.out.println("User : << "+username);
         System.out.println("-------------Usage: LoggingDemo ActionName Arguments. Enter end to quit------------");
         System.out.println("Actions:");
         System.out.println("   createProduct productname quantity");
