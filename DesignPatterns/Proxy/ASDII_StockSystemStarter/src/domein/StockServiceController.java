@@ -1,12 +1,15 @@
 package domein;
 
-public class StockServiceController {
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class StockServiceController extends UnicastRemoteObject implements RemoteStockService{
 
     private StockService service;
 
     private CommandFactory commandFactory;
     
-    public StockServiceController() {
+    public StockServiceController() throws RemoteException{
     	service = new StockService();
     	commandFactory = new CommandFactory(service);
     }
