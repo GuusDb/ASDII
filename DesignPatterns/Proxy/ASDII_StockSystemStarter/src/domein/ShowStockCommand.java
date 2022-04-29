@@ -2,10 +2,10 @@ package domein;
 
 public class ShowStockCommand implements Command {
 
-	private final StockService stockService;
+	private final IStockService stockService;
 
-	public ShowStockCommand(StockService stockService) {
-		this.stockService=stockService;
+	public ShowStockCommand(IStockService iStockService) {
+		this.stockService=iStockService;
 	}
 	
 	public String execute() {

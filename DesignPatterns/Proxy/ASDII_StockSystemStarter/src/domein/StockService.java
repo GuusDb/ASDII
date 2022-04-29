@@ -1,6 +1,6 @@
 package domein;
 
-public class StockService {
+public class StockService implements IStockService{
 
     private Stock stock = new Stock();
 

@@ -2,11 +2,11 @@ package domein;
 
 public class ShipProductCommand implements Command {
 
-	private final StockService stockService;
+	private final IStockService stockService;
 	private String productName;
 	
-	public ShipProductCommand(StockService stockService, String productNaam) {
-		this.stockService = stockService;
+	public ShipProductCommand(IStockService iStockService, String productNaam) {
+		this.stockService = iStockService;
 		this.productName=productNaam;
 	}
 

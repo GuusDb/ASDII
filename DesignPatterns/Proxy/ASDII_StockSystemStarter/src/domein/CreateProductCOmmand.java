@@ -2,12 +2,12 @@ package domein;
 
 public class CreateProductCOmmand implements Command {
 
-	private final StockService stockService;
+	private final IStockService stockService;
 	private int quantity;
 	private String productName;
 
-	public CreateProductCOmmand(StockService stockService, String productNaam, int quantity) {
-		this.stockService= stockService;
+	public CreateProductCOmmand(IStockService iStockService, String productNaam, int quantity) {
+		this.stockService= iStockService;
 		this.productName = productNaam;
 		this.quantity= quantity;
 	}
