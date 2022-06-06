@@ -17,7 +17,9 @@ public class DomeinController {
 		ExecutorService threadpool = Executors.newFixedThreadPool(jobs.size()*2);
 		//TODO
 		List<Future<String>> futureList =  jobs.stream().map(threadpool::submit).collect(Collectors.toList()); //stream van job =>stream<Future<String>> => List<Future<String>>
-				
+		Future<String> string = threadpool.submit(jobs.get(0));
+		
+		System.out.println(string);
 		
 		futureList.forEach(future->threadpool.execute(new ReportJob<>(future, gatherResult)));
 //		futureList.stream()
